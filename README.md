@@ -1,7 +1,1 @@
-# Anton Didytskyi
-λ
-
-<!-- МЕТРИКИ -->
-<p align="center">
-  <img src="./github-metrics.svg" alt="Metrics" width="100%">
-</p>
+![Metrics](https://github.com/vvvvvvvector/vvvvvvvector/blob/main/github-metrics.svg)
