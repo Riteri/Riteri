@@ -1,1 +1,1 @@
-![Metrics](https://github.com/vvvvvvvector/vvvvvvvector/blob/main/github-metrics.svg)
+![Metrics](https://github.com/Riteri/Riteri/blob/main/github-metrics.svg)
