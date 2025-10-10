@@ -1,28 +1,50 @@
 name: Metrics
 on:
-  # Schedule updates (each hour)
-  schedule: [{cron: "0 * * * *"}]
+  schedule: [{cron: "0 * * * *"}]   # раз в час
   workflow_dispatch:
   push: {branches: ["master", "main"]}
+
 jobs:
   github-metrics:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: lowlighter/metrics@latest
         with:
-          
           token: ${{ secrets.METRICS_TOKEN }}
-          
+
           user: Riteri
           template: classic
-          base: header
+          filename: github-metrics.svg
+          output_action: commit
+          config_timezone: Europe/Warsaw
+          base: header, activity, community, repositories, metadata
+
           plugin_isocalendar: yes
-          plugin_isocalendar_duration: half-year
+          plugin_isocalendar_duration: full-year
+          plugin_calendar: yes
+          plugin_calendar_limit: 1   
+
           plugin_languages: yes
           plugin_languages_details: percentage
-          config_timezone: Europe/Warsaw
+          plugin_languages_ignored: html, css
+
           plugin_stars: yes
-          plugin_stars_limit: 3
+          plugin_stars_limit: 6
           plugin_lines: yes
+
+          plugin_habits: yes
+          plugin_habits_facts: yes    
+          plugin_habits_charts: no   
+
+          plugin_streak: yes
+
+          plugin_followup: yes
+          plugin_followup_sections: repositories, user
+
+          plugin_achievements: yes
+          plugin_achievements_threshold: A
+
+          # Трафик лучше не включать (нужны доп.права)
           plugin_traffic: no
-          
